@@ -1,24 +1,19 @@
-# README
+# rails-react-carrierwave-backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+詳細: https://qiita.com/kazama1209/items/1a0186f635f14a8161d8
 
-Things you may want to cover:
+## セットアップ
 
-* Ruby version
+```
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose run api rails db:create
+$ docker-compose run api rails db:migrate
+```
 
-* System dependencies
+## 動作確認
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ curl -F "content=test" -F "image=@sample.jpg" http://localhost:3001/api/v1/posts
+$ curl -X GET http://localhost:3001/api/v1/posts
+```
